@@ -24,13 +24,17 @@ import word_frequency_calculator
 import translation_generator
 import syllables
 import json
+import numpy
 
 dictionary = {}
+
 engwords_file = open('english_words.txt', 'r', encoding='utf-8')
 englines = [line for line in engwords_file]
+engwords_file.close()
+
 for i in range(len(englines)):
     english_word = englines[i].strip()
-    dictionary[english_word] = gen_word(syllables.estimate(english_word))
+    dictionary[english_word] = gen_word(syllables.estimate(english_word) + round(numpy.random.uniform(0,1)))
     if (i % 10000 == 0):
         print(i)
 with open('dictionary.json', 'w') as file:
@@ -38,19 +42,3 @@ with open('dictionary.json', 'w') as file:
 
 word_frequency_calculator.calculate()
 translation_generator.print_passage()
-
-# with open('translations.txt', 'w', encoding='utf-8') as output_file:
-#     engwords_file = open('english_words.txt', 'r', encoding='utf-8')
-#     englines = [line for line in engwords_file]
-
-#     output = ''
-#     for i in range(len(englines)):
-#         english_word = englines[i].strip()
-#         output += ' {} '.format(english_word)
-#         output += '\n'
-#         output += ' {} '.format(gen_word(syllables.estimate(english_word)).strip())
-#         output += '\n'
-#     print(output, file=output_file)
-
-#     engwords_file.close()
-#     output_file.close()

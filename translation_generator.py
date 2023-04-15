@@ -1,7 +1,7 @@
 import json
 import nltk
 
-passage = "The man found joy in the daily routine of life. He awoke at the same time, ate the same breakfast and drove the same commute. He worked at a job that never seemed to change and he got home at six' sharp every night. It was who he had been for the last ten years and he had no idea that was all about to change."
+passage = "The amber droplet hung from the branch, reaching fullness and ready to drop. It waited. While many of the other droplets were satisfied to form as big as they could and release, this droplet had other plans. It wanted to be part of history. It wanted to be remembered long after all the other droplets had dissolved into history. So it waited for the perfect specimen to fly by to trap and capture that it hoped would eventually be discovered hundreds of years in the future."
 passage_tokens = nltk.word_tokenize(passage.lower())
 
 def print_passage():
